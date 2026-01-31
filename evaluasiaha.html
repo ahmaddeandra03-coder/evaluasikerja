@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draft Evaluasi AHA - 2 Person Only</title>
+    <style>
+        body {
+            margin: 0; padding: 20px;
+            font-family: 'Inter', sans-serif;
+            background: url('image.png') no-repeat center center fixed; /* Pastikan file foto ada di folder yang sama */
+            background-size: cover;
+            min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.85); /* Efek transparan biar foto tamannya kelihatan */
+            backdrop-filter: blur(10px);
+            padding: 30px; border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+            width: 100%; max-width: 380px;
+            text-align: center;
+        }
+
+        input { 
+            width: 100%; padding: 12px; margin: 15px 0; 
+            border-radius: 12px; border: 1px solid #ccc;
+            box-sizing: border-box; font-size: 1rem;
+        }
+
+        .info-box { 
+            background: #0056b3; color: white; padding: 15px; 
+            border-radius: 12px; margin-top: 10px; display: none; 
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2 style="margin-bottom: 5px;">AHA Commerce</h2>
+    <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;">Draf Evaluasi Kinerja </p>
+    
+    <input type="text" id="cekNama" placeholder="Ketik SYAKIRA atau AHMAD..." onkeyup="tampilkanHRD()">
+    
+    <div id="hasil" class="info-box">
+        <span style="font-size: 0.8rem; opacity: 0.9;">Karyawan ditemukan:</span><br>
+        <strong id="namaKaryawan" style="font-size: 1.1rem;"></strong><br><br>
+        <span style="font-size: 0.8rem; opacity: 0.9;">HRD Pendamping:</span><br>
+        <strong id="namaHRD" style="font-size: 1.1rem;"></strong>
+    </div>
+</div>
+
+<script>
+    function tampilkanHRD() {
+        const input = document.getElementById('cekNama').value.toUpperCase();
+        const hasil = document.getElementById('hasil');
+        const karyawan = document.getElementById('namaKaryawan');
+        const hrd = document.getElementById('namaHRD');
+
+        if (input.includes("SYAKIRA")) {
+            hasil.style.display = 'block';
+            karyawan.innerText = "Syakira Naura Ramadhani";
+            hrd.innerText = "Muliyadin";
+        } else if (input.includes("AHMAD") || input.includes("DEANDRA")) {
+            hasil.style.display = 'block';
+            karyawan.innerText = "Ahmad Deandra Saputra";
+            hrd.innerText = "Manzilina Qhistina";
+        } else {
+            hasil.style.display = 'none';
+        }
+    }
+</script>
+
+</body>
+</html>
